@@ -1,4 +1,5 @@
 import torch
+from torch.nn import functional as F
 
 class LogisticRegression(torch.nn.Module):
     def __init__(self, input_size, output_size):
@@ -7,4 +8,5 @@ class LogisticRegression(torch.nn.Module):
 
     def forward(self, x):
         out = self.linear(x)
-        return torch.sigmoid(out)
+        out = F.sigmoid(out)
+        return out
